@@ -1,6 +1,7 @@
 package pl.bard.todolist.datamodel;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class TodoItem {
 
@@ -31,7 +32,14 @@ public class TodoItem {
     }
 
     public String getDeadline() {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("d MMMM, yyyy");
         return deadline.toString();
+    }
+
+    public String getDeadline(String format) {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern(format);
+
+        return df.format(deadline);
     }
 
     public void setDeadline(LocalDate deadline) {
