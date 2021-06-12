@@ -30,11 +30,16 @@ public class TodoItem {
         this.details = details;
     }
 
-    public LocalDate getDeadline() {
-        return deadline;
+    public String getDeadline() {
+        return deadline.toString();
     }
 
     public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
+    }
+
+    @Override
+    public String toString() {
+        return shortDescription;
     }
 }

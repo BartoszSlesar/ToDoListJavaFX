@@ -1,5 +1,9 @@
 package pl.bard.todolist;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TextArea;
 import pl.bard.todolist.datamodel.TodoItem;
 
 import java.time.LocalDate;
@@ -10,6 +14,10 @@ import java.util.List;
 public class Controller {
 
     private List<TodoItem> todoItems;
+    @FXML
+    private ListView<TodoItem> todoListView;
+    @FXML
+    private TextArea itemDetailsTextArea;
 
     public void initialize() {
 //        for testing purposes
@@ -30,6 +38,20 @@ public class Controller {
         todoItems.add(item3);
         todoItems.add(item4);
         todoItems.add(item5);
+        todoListView.getItems().setAll(todoItems);
+        todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+
+    }
+
+    @FXML
+    public void handleClickListView() {
+        TodoItem item = todoListView.getSelectionModel().getSelectedItem();
+//        System.out.println("Selected item is " + item.getDetails());
+        StringBuilder sb = new StringBuilder(item.getDetails());
+        sb.append("\n\n\n\n");
+        sb.append("Due: ");
+        sb.append(item.getDeadline());
+        itemDetailsTextArea.setText(sb.toString());
 
     }
 
