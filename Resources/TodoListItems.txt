@@ -1,0 +1,5 @@
+Coding Exercise	Do a next module of java Course	13.06.2021
+Doctor appointment	See, Dr. and some random text	15.07.2021
+Order a package from site X	Some random and unnecessary data	13.04.2021
+Pickup friend from airport	Pickup friends from airport	15.01.2021
+Preparing for competition	Run run run and win	21.10.2021
