@@ -42,10 +42,20 @@ public class TodoItem {
         return df.format(deadline);
     }
 
+    public boolean isOverdue() {
+        return deadline.isEqual(LocalDate.now()) || deadline.isBefore(LocalDate.now());
+    }
+
+    public boolean isNearDeadline() {
+        return deadline.isEqual(LocalDate.now().plusDays(1));
+    }
+
     public void setDeadline(LocalDate deadline) {
         this.deadline = deadline;
     }
 
+    //    if we are using cellFactory, overriding String method is no longer needed to display
+//    wanted content in List view.
     @Override
     public String toString() {
         return shortDescription;
